@@ -12,5 +12,14 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
+## Screenshot
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+![preview](https://user-images.githubusercontent.com/2127096/196855242-13acdb42-1aa2-4da4-b517-8d9b0e5c8d02.png)
+
+## Video
+
+https://user-images.githubusercontent.com/2127096/196855415-1c85e347-aae5-4a3f-b45f-c1aa73c0ad0e.mp4
+
+
+
+
