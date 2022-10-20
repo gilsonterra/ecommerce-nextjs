@@ -2,7 +2,7 @@
 
 https://ecommerce-nextjs-rho-seven.vercel.app
 
-## Tecnológias Utilizadas
+## Tecnologias Utilizadas
 
 - React
 - Typescript
