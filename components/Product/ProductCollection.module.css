@@ -1,0 +1,30 @@
+.cards {
+  display: flex;
+  padding: 10px 0px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+
+.cards::-webkit-scrollbar {
+  height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #9B4DCA;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+.title {
+  margin: 0px;
+  padding: 0px;
+}
