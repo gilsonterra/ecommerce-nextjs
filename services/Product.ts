@@ -12,7 +12,7 @@ const fetchAll = async (pagination?: Pagination): Promise<ProductCollection> => 
   }
 
   if(pagination){
-    queryParams = Object.keys(pagination).map(key => key + '=' + pagination[key]).join('&');
+    queryParams = Object.keys(pagination).map(key => key + '=' + pagination[key as keyof Pagination]).join('&');
   }
 
   const response = await fetch(`${url}?${queryParams}`);
