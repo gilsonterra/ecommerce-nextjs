@@ -5,8 +5,25 @@ import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
 import Cart from "../components/Header/Cart";
 import ProductCollection from "../components/Product/ProductCollection";
+import { fetchAll } from "../services/Product";
+import { useEffect, useState } from "react";
+import { Product } from "../types/Product";
 
-const Home: NextPage = () => {
+interface HomeProps {
+  products: Product[]
+}
+
+const Home = ({ products }: HomeProps) => {
+  const [fashion, setFashion] = useState<Product[]>([]);
+  const [red, setRed] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetchAll({ q: "fashion", total: 200 }).then((data) =>
+      setFashion(data.products)
+    );
+    fetchAll({ q: "red", total: 200 }).then((data) => setRed(data.products));
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -20,21 +37,17 @@ const Home: NextPage = () => {
       </Header>
       <main className={styles.main}>
         <br />
-        <ProductCollection
-          title="Eletronicos"
-          pagination={{ q: "phone", total: 200 }}
-        />
-        <ProductCollection
-          title="Moda"
-          pagination={{ q: "fashion", total: 200 }}
-        />
-        <ProductCollection
-          title="Acessórios"
-          pagination={{ q: "red", total: 200 }}
-        />
+        <ProductCollection title="Eletronicos" products={products} />
+        <ProductCollection title="Moda" products={fashion} />
+        <ProductCollection title="Acessórios" products={red} />
       </main>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const response = await fetchAll({ q: "phone", total: 200 });
+  return { props: { products: response.products } }
+}
 
 export default Home;

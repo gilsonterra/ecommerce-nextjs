@@ -3,7 +3,7 @@ import { ProductCollection } from "../types/Product";
 
 const BASE_URL = "https://dummyjson.com/products";
 
-const fetchAll = async (pagination?: Pagination): Promise<ProductCollection> => {
+export const fetchAll = async (pagination?: Pagination): Promise<ProductCollection> => {
   let url = BASE_URL;
   let queryParams = '';
 
@@ -20,5 +20,3 @@ const fetchAll = async (pagination?: Pagination): Promise<ProductCollection> => 
 
   return json;
 };
-
-export default fetchAll;
