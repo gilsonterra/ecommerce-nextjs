@@ -1,0 +1,16 @@
+.main {
+  width: 100%;
+  max-width: 1250px;
+  margin: 10px auto;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  gap: 5px;
+  color: #9b4dca;
+  text-decoration: underline;
+  font-size: 1.2rem;
+  font-weight: 600;
+}

@@ -5,14 +5,17 @@ import style from "./ProductCollection.module.css";
 interface PaginationCollection {
   title: string;
   products: Product[];
+  type?: 'grid' | 'cards';
 }
 
-const ProductCollection = ({ title, products }: PaginationCollection) => {
+const ProductCollection = ({ title, products, type }: PaginationCollection) => {
+  const typeStyle = type === 'grid' ? 'grid' : 'cards';
+
   return (
-    <section className={style.section}>
-      <h1 className={style.title}>{title} ({ products?.length || 0 })</h1>
+    <section>
+      <h1 className={style.title}>{title} { title ? `(${products?.length || 0})` : '' }</h1>
       
-      <ul className={style.cards}>
+      <ul className={style[typeStyle]}>
         {products?.map((product) => (
           <ProductItem key={product.id} {...product} />
         ))}

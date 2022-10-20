@@ -37,7 +37,7 @@ const Home = ({ products }: HomeProps) => {
       </Header>
       <main className={styles.main}>
         <br />
-        <ProductCollection title="Eletronicos" products={products} />
+        <ProductCollection title="Eletronicos  *usando SSR" products={products} />
         <ProductCollection title="Moda" products={fashion} />
         <ProductCollection title="Acessórios" products={red} />
       </main>

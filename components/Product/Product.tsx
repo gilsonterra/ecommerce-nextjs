@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Product } from "../../types/Product";
 import style from "./Product.module.css";
+import Link from "next/link";
 
-const Product = ({ thumbnail, description, price, title}: Product) => {
+const Product = ({ thumbnail, description, price, title, id}: Product) => {
   return (
      <li className={style.card}>
       <Image
@@ -20,9 +21,9 @@ const Product = ({ thumbnail, description, price, title}: Product) => {
      </div>
      <div className={style.wrapper}>
       <span className={style.price}>R$ {price}</span>
-       <a href="" className={style.link}>
-         Ver Detalhes
-       </a>
+       <Link href={`/detail/${id}`}>
+         <a className={style.link}>Ver Detalhes</a>
+       </Link>
      </div>
    </li>
   );

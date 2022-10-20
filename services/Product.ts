@@ -1,5 +1,5 @@
 import { Pagination } from "../types/Pagination";
-import { ProductCollection } from "../types/Product";
+import { Product, ProductCollection } from "../types/Product";
 
 const BASE_URL = "https://dummyjson.com/products";
 
@@ -20,3 +20,10 @@ export const fetchAll = async (pagination?: Pagination): Promise<ProductCollecti
 
   return json;
 };
+
+export const fetchById = async (id: string) => {
+  const response = await fetch(`${BASE_URL}/${id}`);
+  const json = (await response.json()) as Product;
+
+  return json;
+}
