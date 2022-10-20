@@ -1,6 +1,6 @@
 ## Demo
 
-https://ecommerce-nextjs-h77w9pja2-gilsonterra.vercel.app
+https://ecommerce-nextjs-rho-seven.vercel.app
 
 ## Tecnológias Utilizadas
 
@@ -22,10 +22,8 @@ yarn dev
 
 Depos abra o endereço [http://localhost:3000](http://localhost:3000).
 
-## Screenshot
-
-![preview](https://user-images.githubusercontent.com/2127096/196855242-13acdb42-1aa2-4da4-b517-8d9b0e5c8d02.png)
-
 ## Video
 
-https://user-images.githubusercontent.com/2127096/196855415-1c85e347-aae5-4a3f-b45f-c1aa73c0ad0e.mp4
+https://user-images.githubusercontent.com/2127096/197054464-82c34dfe-2f52-48b8-b5b1-4bc3a7e908bc.mp4
+
+
