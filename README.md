@@ -1,6 +1,6 @@
 ## Demo
 
-https://ecommerce-nextjs-rho-seven.vercel.app
+https://ecommerce-nextjs-gilsonterra.vercel.app/
 
 ## Tecnologias Utilizadas
 
