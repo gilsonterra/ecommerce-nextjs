@@ -1,7 +1,4 @@
 import Head from "next/head";
-import Navbar from "../../components/Navbar/Navbar";
-import Header from "../../components/Header/Header";
-import Cart from "../../components/Header/Cart";
 import { fetchById } from "../../services/Product";
 import { Product } from "../../types/Product";
 import styles from "styles/Detail.module.css";
@@ -22,9 +19,6 @@ const Detail = ({ product }: DetailProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header top={<Cart />}>
-        <Navbar />
-      </Header>
       <main className={styles.main}>
         <Link href="/">
           <a className={styles.back}>

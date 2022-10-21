@@ -1,7 +1,4 @@
 import Head from "next/head";
-import Navbar from "../components/Navbar/Navbar";
-import Header from "../components/Header/Header";
-import Cart from "../components/Header/Cart";
 import ProductCollection from "../components/Product/ProductCollection";
 import { fetchAll } from "../services/Product";
 import { useEffect, useState } from "react";
@@ -30,10 +27,6 @@ const Search = () => {
         <meta name="description" content="Ecommerce NextJS" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Header top={<Cart />}>
-        <Navbar />
-      </Header>
       <main className={styles.main}>
         <div className={styles.title}>{ name }</div>
         <ProductCollection

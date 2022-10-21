@@ -1,9 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Index.module.css";
-import Navbar from "../components/Navbar/Navbar";
-import Header from "../components/Header/Header";
-import Cart from "../components/Header/Cart";
 import ProductCollection from "../components/Product/ProductCollection";
 import { fetchAll } from "../services/Product";
 import { useEffect, useState } from "react";
@@ -32,9 +29,6 @@ const Home = ({ products }: HomeProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header top={<Cart />}>
-        <Navbar />
-      </Header>
       <main className={styles.main}>
         <br />
         <ProductCollection title="Eletronicos  *usando SSR" products={products} />
