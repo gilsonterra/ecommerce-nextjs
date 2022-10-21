@@ -87,3 +87,11 @@
 .button:active {
   font-size: 1.9rem;
 }
+
+.sold {
+  display: flex;
+  justify-content: center;
+  color: darkred;
+  font-size: 1.9rem;
+  font-weight: 600;
+}

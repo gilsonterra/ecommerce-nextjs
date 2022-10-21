@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { Product } from "../../types/Product";
 import styles from "components/Product/Detail.module.css";
+import { addCart, selectTotalByProduct, selectTotalProduct } from "../../store/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const Detail = (product: Product) => {
-  const addCart = () => {
-    console.log("add");
+  const dispatch = useAppDispatch();
+  const totalProducts = useAppSelector((state) => selectTotalByProduct(state, product));
+
+  const handleAddCart = () => {
+    dispatch(addCart(product));
   };
 
   return (
@@ -42,9 +47,13 @@ const Detail = (product: Product) => {
           </span>
           <span className={styles.price}>R$ {product.price}</span>
         </div>
-        <button className={styles.button} onClick={addCart}>
-          Comprar
-        </button>
+        {totalProducts > product.stock ? (
+          <span className={styles.sold}>Esgotado</span>
+        ) : (
+          <button className={styles.button} onClick={handleAddCart}>
+            Comprar
+          </button>
+        )}
       </div>
     </div>
   );
