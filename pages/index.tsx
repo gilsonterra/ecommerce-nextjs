@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
-import Head from "next/head";
 import styles from "../styles/Index.module.css";
 import ProductCollection from "../components/Product/ProductCollection";
 import { fetchAll } from "../services/Product";
 import { useEffect, useState } from "react";
 import { Product } from "../types/Product";
+import Layout from "../components/Layout/Layout";
 
 interface HomeProps {
   products: Product[]
@@ -22,13 +21,8 @@ const Home = ({ products }: HomeProps) => {
   }, []);
 
   return (
+    <Layout title="Ecommerce" description="Ecommerce NextJS by Gilson Terra">
     <div className={styles.container}>
-      <Head>
-        <title>Ecommerce NextJS</title>
-        <meta name="description" content="Ecommerce NextJS" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <br />
         <ProductCollection title="Eletronicos  *usando SSR" products={products} />
@@ -36,6 +30,7 @@ const Home = ({ products }: HomeProps) => {
         <ProductCollection title="Acessórios" products={red} />
       </main>
     </div>
+    </Layout>
   );
 };
 

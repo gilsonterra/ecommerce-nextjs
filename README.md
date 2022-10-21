@@ -8,6 +8,8 @@ https://ecommerce-nextjs-gilsonterra.vercel.app/
 - Typescript
 - NextJs
 - Redux
+- Next-Seo
+- Framer - Animation
 - Vercel
 - SSH - Serve Side Render
 - Fetch (para consumir API)

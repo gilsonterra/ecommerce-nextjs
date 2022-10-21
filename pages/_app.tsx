@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Navbar from "../components/Navbar/Navbar";
 import Header from "../components/Header/Header";
 import Cart from "../components/Header/Cart";
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +13,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Header top={<Cart />}>
         <Navbar />
       </Header>
-      <Component {...pageProps} />
+      <AnimatePresence
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} />
+      </AnimatePresence>
     </Provider>
   );
 }
