@@ -3,16 +3,20 @@ import { Product, ProductCollection } from "../types/Product";
 
 const BASE_URL = "https://dummyjson.com/products";
 
-export const fetchAll = async (pagination?: Pagination): Promise<ProductCollection> => {
+export const fetchAll = async (
+  pagination?: Pagination
+): Promise<ProductCollection> => {
   let url = BASE_URL;
-  let queryParams = '';
+  let queryParams = "";
 
   if (pagination?.q) {
     url += `/search`;
   }
 
-  if(pagination){
-    queryParams = Object.keys(pagination).map(key => key + '=' + pagination[key as keyof Pagination]).join('&');
+  if (pagination) {
+    queryParams = Object.keys(pagination)
+      .map((key) => key + "=" + pagination[key as keyof Pagination])
+      .join("&");
   }
 
   const response = await fetch(`${url}?${queryParams}`);
@@ -26,4 +30,19 @@ export const fetchById = async (id: string) => {
   const json = (await response.json()) as Product;
 
   return json;
-}
+};
+
+export const fetchCategories = async () => {
+  const response = await fetch(`${BASE_URL}/categories`);
+  const json = (await response.json()) as string[];
+
+  return json;
+};
+
+export const fetchByCategory = async (category: string) => {
+  const response = await fetch(`${BASE_URL}/category/${category}`);
+  const json = (await response.json()) as ProductCollection;
+
+  return json;
+};
+

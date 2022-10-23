@@ -27,18 +27,6 @@
   padding: 0px;
 }
 
-.rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  color: rgb(117, 117, 4);
-}
-
-.rating label {
-  margin-left: 5px;
-}
-
 .containerPrice {
   color: #333;
   padding: 20px 0px;
@@ -47,12 +35,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid 1px #ccc;
+  margin-top: 10px;
+}
+
+.containerButton {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .price {
   font-size: 2.5rem;
   padding: 10px 0px;
   font-weight: 700;
+}
+
+.discount {
+  display: flex;
+  gap: 5px;
+  padding: 5px 0px;
+  color: rgb(150, 148, 148);
 }
 
 .percent {
@@ -63,13 +68,6 @@
   font-size: 0.9rem;
 }
 
-.brand {
-  font-size: 1rem;
-  color: #602274;
-  font-weight: 600;
-  padding: 5px;
-}
-
 .button {
   background-color: #9b4dca;
   color: white;
@@ -78,6 +76,8 @@
   padding: 10px;
   cursor: pointer;
   border-radius: 50px;
+  border: none;
+  width: 100%;
 }
 
 .button:hover {

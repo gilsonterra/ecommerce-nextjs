@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   flex: 0 0 100%;
-  padding: 10px;
+  padding: 20px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 15%);
   scroll-snap-align: start;
   transition: all 0.2s;
   border: solid 1px #eee;
-  height: 340px;
+  height: 400px;
 }
 
 .card:not(:last-child) {
@@ -41,8 +39,18 @@
   margin-top: auto;
 }
 
+.containerPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .price {
-  font-size: 1.5rem;
+  font-size: .8rem;
+}
+
+.priceDiscount {
+  font-size: 1.6rem;
   font-weight: 600;
 }
 

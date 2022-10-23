@@ -1,0 +1,12 @@
+.rating {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-weight: 600;
+  color: rgb(117, 117, 4);
+}
+
+.rating label {
+  margin-left: 5px;
+  font-size: .9rem;
+}

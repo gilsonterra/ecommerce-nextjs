@@ -1,37 +1,36 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { fetchCategories } from "../../services/Product";
 
 const Navbar = () => {
   const router = useRouter();
-  const isActive = (route: string) => encodeURI(route) === router.asPath ? styles.active : '';
-  const urlEletronicos = "/search?q=phone&title=Eletrônicos";
-  const urlModa = "/search?q=fashion&title=Moda";
-  const urlAcessorios  = "/search?q=red&title=Acessórios";
+
+  const isActive = (category: string) =>
+    router.asPath === `/category/${category}` ? styles.active : "";
+
+  const [categories, setCategories] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchCategories().then((data) => setCategories(data.slice(0, 9)));
+  }, []);
 
   return (
     <nav className={styles.nav}>
       <ul>
         <li>
           <Link href="/">
-            <a className={isActive('/')}>Home</a>
+            <a className={isActive("/")}>Home</a>
           </Link>
         </li>
-        <li>
-          <Link href={urlEletronicos}>
-            <a className={isActive(urlEletronicos)}>Eletrônicos</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={urlModa}>
-            <a className={isActive(urlModa)}>Moda</a>
-          </Link>
-        </li>
-        <li>
-          <Link href={urlAcessorios}>
-            <a className={isActive(urlAcessorios)}>Acessórios</a>
-          </Link>
-        </li>
+        {categories.map((item) => (
+          <li key={item}>
+            <Link href={`/category/${item}`}>
+              <a className={isActive(item)}>{item.replaceAll('-', ' ')}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

@@ -1,19 +1,29 @@
 import Image from "next/image";
 import { Product } from "../../types/Product";
 import styles from "components/Product/Detail.module.css";
-import { addCart, selectTotalByProduct, selectTotalProduct } from "../../store/cartSlice";
+import { addCart, selectTotalByProduct } from "../../store/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import Rating from "../../components/Product/Rating";
+import { motion } from "framer-motion";
+import Brand from "./Brand";
 
 const Detail = (product: Product) => {
   const dispatch = useAppDispatch();
-  const totalProducts = useAppSelector((state) => selectTotalByProduct(state, product));
+  const totalProducts = useAppSelector((state) =>
+    selectTotalByProduct(state, product)
+  );
 
   const handleAddCart = () => {
     dispatch(addCart(product));
   };
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      initial={{ y: -10, opacity: 0.3 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: "easeOut", duration: 0.3 }}
+      className={styles.container}
+    >
       <div className={styles.containerImage}>
         <Image
           loader={() => product.thumbnail}
@@ -28,34 +38,41 @@ const Detail = (product: Product) => {
           <h1>{product.title}</h1>
         </div>
         <div className={styles.containerTitle}>
-          <span className={styles.brand}>{product.brand}</span>
-          <div className={styles.rating}>
-            <Image
-              className={styles.image}
-              src="/star.svg"
-              alt="Avalição"
-              width={20}
-              height={20}
-            />
-            <label>{product.rating}</label>
-          </div>
+          <Brand value={product.brand} />
+          <Rating value={product.rating} />
         </div>
         <p>{product.description}</p>
+        <p>
+          Categoria: <b>{product.category}</b>
+        </p>
+        <p>
+          Estoque: <b>{product.stock}</b>
+        </p>
         <div className={styles.containerPrice}>
           <span className={styles.percent}>
             - {product.discountPercentage}%
           </span>
+          <div className={styles.discount}>
+            <del>
+              R$
+              {product.price +
+                product.price * (product.discountPercentage / 100)}
+            </del>
+            <span>({product.discountPercentage}% de desconto)</span>
+          </div>
           <span className={styles.price}>R$ {product.price}</span>
+          <div className={styles.containerButton}>
+            {totalProducts > product.stock ? (
+              <span className={styles.sold}>Esgotado</span>
+            ) : (
+              <button className={styles.button} onClick={handleAddCart}>
+                Comprar
+              </button>
+            )}
+          </div>
         </div>
-        {totalProducts > product.stock ? (
-          <span className={styles.sold}>Esgotado</span>
-        ) : (
-          <button className={styles.button} onClick={handleAddCart}>
-            Comprar
-          </button>
-        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
