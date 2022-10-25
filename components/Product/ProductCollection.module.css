@@ -9,11 +9,10 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   margin: 0px;
+  gap: 5px;
   padding: 0px;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
 }
 
 .cards::-webkit-scrollbar {

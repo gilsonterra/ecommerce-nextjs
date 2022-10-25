@@ -16,6 +16,9 @@ const Product = ({
   rating,
   id,
 }: Product) => {
+  const formattedReal = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+  const priceFormatted = (price: number, discountPercentage: number): string => formattedReal(price + price * (discountPercentage / 100));
+
   return (
     <motion.li
       initial={{ opacity: 0.5 }}
@@ -42,9 +45,9 @@ const Product = ({
       <div className={style.wrapper}>
         <div className={style.containerPrice}>
           <del className={style.price}>
-            R$ {price + price * (discountPercentage / 100)}
+            {priceFormatted(price, discountPercentage)}
           </del>
-          <span className={style.priceDiscount}>R$ {price}</span>
+          <span className={style.priceDiscount}>{formattedReal(price)}</span>
         </div>
         <Link href={`/detail/${id}`}>
           <a className={style.link}>Ver Detalhes</a>

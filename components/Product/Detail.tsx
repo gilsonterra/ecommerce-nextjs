@@ -12,10 +12,14 @@ const Detail = (product: Product) => {
   const totalProducts = useAppSelector((state) =>
     selectTotalByProduct(state, product)
   );
-
   const handleAddCart = () => {
     dispatch(addCart(product));
   };
+  const formattedReal = (value: number) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value);
 
   return (
     <motion.div
@@ -34,34 +38,68 @@ const Detail = (product: Product) => {
         />
       </div>
       <div className={styles.containerDetail}>
-        <div>
-          <h1>{product.title}</h1>
-        </div>
-        <div className={styles.containerTitle}>
+        <motion.h1
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 1 }}
+        >
+          {product.title}
+        </motion.h1>
+        <motion.div
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 0.8 }}
+          className={styles.containerTitle}
+        >
           <Brand value={product.brand} />
           <Rating value={product.rating} />
-        </div>
-        <p>{product.description}</p>
-        <p>
+        </motion.div>
+        <motion.p
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 0.6 }}
+        >
+          {product.description}
+        </motion.p>
+        <motion.p
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 0.8 }}
+        >
           Categoria: <b>{product.category}</b>
-        </p>
-        <p>
+        </motion.p>
+        <motion.p
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 0.8 }}
+        >
           Estoque: <b>{product.stock}</b>
-        </p>
-        <div className={styles.containerPrice}>
+        </motion.p>
+        <motion.div
+          initial={{ y: 20, opacity: 0.3 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ease: "easeOut", duration: 0.6 }}
+          className={styles.containerPrice}
+        >
           <span className={styles.percent}>
             - {product.discountPercentage}%
           </span>
           <div className={styles.discount}>
             <del>
-              R$
-              {product.price +
-                product.price * (product.discountPercentage / 100)}
+              {formattedReal(
+                product.price +
+                  product.price * (product.discountPercentage / 100)
+              )}
             </del>
             <span>({product.discountPercentage}% de desconto)</span>
           </div>
-          <span className={styles.price}>R$ {product.price}</span>
-          <div className={styles.containerButton}>
+          <span className={styles.price}>{formattedReal(product.price)}</span>
+          <motion.div
+            className={styles.containerButton}
+            initial={{ y: 20, opacity: 0.3 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 0.6 }}
+          >
             {totalProducts > product.stock ? (
               <span className={styles.sold}>Esgotado</span>
             ) : (
@@ -69,8 +107,8 @@ const Detail = (product: Product) => {
                 Comprar
               </button>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </motion.div>
   );

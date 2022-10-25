@@ -20,6 +20,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link href="https://fonts.googleapis.com/css2?family=Dancing Script&display=swap" rel="stylesheet" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <NextSeo

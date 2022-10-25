@@ -11,7 +11,7 @@
 }
 
 .card:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .card:hover {
@@ -24,7 +24,7 @@
 }
 
 .card .content {
-  width: 250px;
+  width: 245px;
   margin: 0 0 1em 0;
   overflow: hidden;
   display: -webkit-box;
@@ -50,7 +50,7 @@
 }
 
 .priceDiscount {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 

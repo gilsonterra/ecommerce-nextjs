@@ -1,5 +1,5 @@
 .header {
-  background-color: #9B4DCA;
+  background-color: #9b4dca;
 }
 
 .container {
@@ -8,7 +8,7 @@
   margin: 0px auto;
   display: flex;
   flex-direction: column;
-} 
+}
 
 .header h1 {
   margin: 0px;
@@ -16,9 +16,14 @@
   color: white;
 }
 
-
 .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.title {
+  font-family: "Dancing Script", sans-serif;
+  font-size: 3rem;
+  text-shadow: 4px 3px 0 #7A7A7A, 9px 4px 0px rgba(206,45,197,0.58);
 }

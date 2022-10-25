@@ -10,7 +10,7 @@ const Header = ({ children, top }: HeaderProps) => {
     <div className={styles.header}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h1>Ecommerce</h1>
+          <h1 className={styles.title}>Lojinha</h1>
           {top}
         </div>
         {children}
