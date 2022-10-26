@@ -1,4 +1,4 @@
-import ProductCollection from "../../components/Product/ProductCollection";
+import ProductGrid from "../../components/Product/ProductGrid";
 import { fetchByCategory } from "../../services/Product";
 import { useEffect, useState } from "react";
 import { Product } from "../../types/Product";
@@ -15,6 +15,8 @@ const Category = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    if(!category) return;
+
     fetchByCategory(category).then((data) => setProducts(data.products));
   }, [category]);
 
@@ -32,7 +34,7 @@ const Category = () => {
               {category.replaceAll("-", " ")}
             </motion.div>
           </div>
-          <ProductCollection title="" products={products} type="grid" />
+          <ProductGrid products={products} />
         </main>
       </div>
     </Layout>

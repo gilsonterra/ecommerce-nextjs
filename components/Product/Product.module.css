@@ -4,10 +4,10 @@
   flex: 0 0 100%;
   padding: 20px;
   background: white;
-  scroll-snap-align: start;
-  transition: all 0.2s;
+  transition: all 0.3s;
   border: solid 1px #eee;
-  height: 400px;
+  height: 400px;  
+  margin: 10px 0;
 }
 
 .card:not(:last-child) {
@@ -15,7 +15,8 @@
 }
 
 .card:hover {
-  background: #edd2fd;
+  background: #a406ff34;
+  transform: scale(1.05);
 }
 
 .card .title {
@@ -24,7 +25,7 @@
 }
 
 .card .content {
-  width: 245px;
+  width: 100%;
   margin: 0 0 1em 0;
   overflow: hidden;
   display: -webkit-box;
@@ -66,35 +67,23 @@
 
 .card:hover .link {
   display: inline-block;
-  background: #9B4DCA;
+  background: #9B4DCA;  
 }
 
 @media (min-width: 500px) {
   .card {
-    flex-basis: calc(50% - 10px);
-  }
-
-  .card:not(:last-child) {
-    margin-right: 5px;
+    flex-basis: calc(50% - 20px);
   }
 }
 
 @media (min-width: 700px) {
   .card {
-    flex-basis: calc(calc(100% / 3) - 20px);
-  }
-
-  .card:not(:last-child) {
-    margin-right: 10px;
+    flex-basis: calc(calc(100% / 3) - 40px);
   }
 }
 
 @media (min-width: 1100px) {
   .card {
-    flex-basis: calc(25% - 30px);
-  }
-
-  .card:not(:last-child) {
-    margin-right: 20px;
+    flex-basis: calc(25% - 50px);
   }
 }

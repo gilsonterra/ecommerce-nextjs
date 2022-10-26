@@ -1,5 +1,5 @@
 import styles from "../styles/Index.module.css";
-import ProductCollection from "../components/Product/ProductCollection";
+import ProductInlineCollection from "../components/Product/ProductInlineCollection";
 import { fetchAll } from "../services/Product";
 import { useEffect, useState } from "react";
 import { Product } from "../types/Product";
@@ -24,10 +24,11 @@ const Home = ({ products }: HomeProps) => {
     <Layout title="Ecommerce" description="Ecommerce NextJS by Gilson Terra">
     <div className={styles.container}>
       <main className={styles.main}>
-        <br />
-        <ProductCollection title="Eletronicos  *usando SSR" products={products} />
-        <ProductCollection title="Moda" products={fashion} />
-        <ProductCollection title="Acessórios" products={red} />
+        <ProductInlineCollection title="Novidades" right={
+          <span className={styles.label}>Usando SSR - Server Side Render</span>
+        } products={products} />
+        <ProductInlineCollection title="Moda" products={fashion} />
+        <ProductInlineCollection title="Acessórios" products={red} />
       </main>
     </div>
     </Layout>
@@ -35,8 +36,8 @@ const Home = ({ products }: HomeProps) => {
 };
 
 export async function getStaticProps() {
-  const response = await fetchAll({ q: "phone", total: 200 });
-  return { props: { products: response.products } }
+  const response = await fetchAll({ total: 200 });
+  return { props: { products: response.products.slice(0, 15) } }
 }
 
 export default Home;

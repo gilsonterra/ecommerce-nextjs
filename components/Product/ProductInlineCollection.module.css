@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0px;
+  padding: 10px 0px;
+  cursor: grab;
+  gap: 10px;
+}
+
+.containerTitle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+}
+
+.containerTitle h1 {
+  padding: 5px 0;
+  margin: 20px 0 0 0;  
+}
+
+.control {
+  width: 40px;
+  height: 400px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background-color: rgba(238, 238, 238, 0.87);
+  font-size: 2rem;
+  border: solid 1px #ccc;
+  top: 78px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.control:hover {
+  opacity: 1;
+}
+
+.control:active {
+  box-shadow: inset 0 0 10px #b200f838;
+}
+
+.control.left {
+  left: 0;
+}
+
+.control.right {
+  right: 0;
+}
+
+.image {
+  width: 500px;
+  height: 500px;
+}
