@@ -2,7 +2,7 @@ import { Product } from "../../types/Product";
 import ProductItem from "./Product";
 import { motion, useMotionValue } from "framer-motion";
 import style from "./ProductInlineCollection.module.css";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface PaginationCollection {
@@ -18,7 +18,7 @@ const ProductCollection = ({
 }: PaginationCollection) => {
   const valueToScroll = 300;
   const [width, setWidth] = useState(0);
-  const carousel = useRef<HTMLElement>();
+  const carousel = useRef() as MutableRefObject<HTMLInputElement>;
   const x = useMotionValue(0);
 
   const handleClickLeft = () => {
