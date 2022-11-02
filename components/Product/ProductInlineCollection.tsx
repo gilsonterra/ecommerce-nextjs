@@ -1,6 +1,6 @@
 import { Product } from "../../types/Product";
 import ProductItem from "./Product";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useAnimation, useMotionValue } from "framer-motion";
 import style from "./ProductInlineCollection.module.css";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -20,22 +20,33 @@ const ProductCollection = ({
   const [width, setWidth] = useState(0);
   const carousel = useRef() as MutableRefObject<HTMLInputElement>;
   const x = useMotionValue(0);
+  const animation = useAnimation();
 
   const handleClickLeft = () => {
     const positiveValue = x.get() * -1;
     const canMove = valueToScroll <= positiveValue;
-    canMove && x.set(x.get() + valueToScroll);
+    const newPosition = x.get() + valueToScroll
+    canMove && animation.start({
+      x: newPosition > 0 ? 0 : newPosition
+    });
   };
   const handleClickRight = () => {
     const positiveValue = x.get() * -1;
     const canMove = positiveValue <= width;
-    canMove && x.set(x.get() - valueToScroll);
+    const newPosition = x.get() - valueToScroll
+    canMove && animation.start({
+      x: newPosition > width ? width : newPosition
+    })
   };
 
   useEffect(() => {
     const width = carousel.current?.scrollWidth || 0;
     const offsetWidth = carousel.current?.offsetWidth || 0;
     setWidth(width - offsetWidth);
+
+    animation.start({
+      x: 0
+    })
   }, [products]);
 
   return (
@@ -53,9 +64,12 @@ const ProductCollection = ({
       <motion.ul
         style={{ x: x }}
         drag="x"
+        initial={{ x: -100 }}
+        animate={animation}
+        transition={{ duration: 0.7 }}
         dragConstraints={{ right: 0, left: -width }}
         className={style.grid}
-        dragElastic={1}
+        dragElastic={0.8}
       >
         {products?.map((product) => (
           <ProductItem key={product.id} {...product} />
