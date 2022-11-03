@@ -6,7 +6,7 @@
   background: white;
   transition: all 0.3s;
   border: solid 1px #eee;
-  height: 400px;  
+  height: 400px;
   margin: 10px 0;
 }
 
@@ -30,7 +30,7 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
 }
 
 .card .wrapper {
@@ -47,7 +47,7 @@
 }
 
 .price {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .priceDiscount {
@@ -59,15 +59,21 @@
   display: none;
   text-decoration: none;
   color: white;
-  background: #9B4DCA;
+  background: #9b4dca;
   padding: 6px 12px;
   border-radius: 8px;
   transition: background 0.2s;
 }
 
+.thumbnail {
+  width: 250px;
+  height: 130px;
+  position: relative;
+}
+
 .card:hover .link {
   display: inline-block;
-  background: #9B4DCA;  
+  background: #9b4dca;
 }
 
 @media (min-width: 500px) {

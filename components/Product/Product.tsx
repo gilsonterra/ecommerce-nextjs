@@ -16,8 +16,14 @@ const Product = ({
   rating,
   id,
 }: Product) => {
-  const formattedReal = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
-  const priceFormatted = (price: number, discountPercentage: number): string => formattedReal(price + price * (discountPercentage / 100));
+  
+  const formattedReal = (value: number) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value);
+  const priceFormatted = (price: number, discountPercentage: number): string =>
+    formattedReal(price + price * (discountPercentage / 100));
 
   return (
     <motion.li
@@ -26,14 +32,15 @@ const Product = ({
       transition={{ ease: "easeOut", duration: 0.3 }}
       className={style.card}
     >
-      <Image
-        loader={() => thumbnail}
-        src="product.png"
-        alt={description}
-        width="250"
-        height="130"
-        className={style.thumbnail}
-      />
+      <div className={style.thumbnail}>
+        <Image
+          src={thumbnail}
+          alt={description}
+          placeholder="blur"
+          layout="fill"
+          blurDataURL="http://localhost:3000/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F1%2Fthumbnail.jpg&w=1920&q=75"
+        />
+      </div>
       <div>
         <h3 className={style.title}>{title}</h3>
         <Brand value={brand} />
