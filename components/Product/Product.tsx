@@ -38,7 +38,7 @@ const Product = ({
           alt={description}
           placeholder="blur"
           layout="fill"
-          blurDataURL="http://localhost:3000/_next/image?url=https%3A%2F%2Fdummyjson.com%2Fimage%2Fi%2Fproducts%2F1%2Fthumbnail.jpg&w=1920&q=75"
+          blurDataURL="https://dummyjson.com/image/i/products/41/thumbnail.webp"
         />
       </div>
       <div>
