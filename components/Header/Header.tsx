@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
@@ -10,7 +11,9 @@ const Header = ({ children, top }: HeaderProps) => {
     <div className="bg-purple-700 flex justify-center align-middle">
       <div className="flex flex-col w-full max-w-screen-xl">
         <div className="flex justify-between p-2">
-          <h1 className={styles.title}>Lojinha</h1>
+          <Link href="/">
+            <h1 className={styles.title}>Lojinha</h1>
+          </Link>
           {top}
         </div>
         {children}

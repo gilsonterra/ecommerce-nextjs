@@ -1,1 +1,5 @@
-<?xml version="1.0" ?><svg height="16px" version="1.1" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#9B4DCA" id="Core" transform="translate(-424.000000, -4.000000)"><g id="arrow-back" transform="translate(424.000000, 4.000000)"><path d="M16,7 L3.8,7 L9.4,1.4 L8,0 L0,8 L8,16 L9.4,14.6 L3.8,9 L16,9 L16,7 L16,7 Z" id="Shape"/></g></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7e22ce" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="19" y1="12" x2="5" y2="12"></line>
+  <polyline points="12 19 5 12 12 5"></polyline>
+
+</svg>

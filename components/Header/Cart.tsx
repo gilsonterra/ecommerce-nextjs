@@ -13,8 +13,8 @@ const Cart = () => {
         className={styles.image}
         src="/cart.svg"
         alt="Carrinho de compras"
-        width={20}
-        height={20}
+        width={25}
+        height={25}
       />
       {totalProducts > 0 && (
         <span className={styles.counter}>

@@ -6,11 +6,13 @@ import { useRouter } from "next/router";
 import styles from "styles/Category.module.css";
 import Layout from "../../components/Layout/Layout";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Category = () => {
   const router = useRouter();
   const { name } = router.query;
-  const category = name ? (Array.isArray(name) ? name[0] : name) : "";
+  const categoryId = name ? (Array.isArray(name) ? name[0] : name) : "";
+  const category = categoryId.replaceAll("-", " ");
 
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -21,20 +23,27 @@ const Category = () => {
   }, [category]);
 
   return (
-    <Layout title={category} description={category}>
+    <Layout title={category.toUpperCase()} description={category}>
       <main className="flex flex-col justify-center items-center">
         <div className="bg-purple-900 w-full text-4xl tracking-wider uppercase flex justify-center align-middle p-10 text-white">
           <motion.div
-            key={category}
+            key={categoryId}
             initial={{ y: 20, opacity: 0.3 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeOut", duration: 0.6 }}
           >
-            {category.replaceAll("-", " ")}
+            {category}
           </motion.div>
         </div>
         <div className="max-w-screen-xl w-full">
-          <ProductGrid products={products} />
+          {products.length <= 0 ? (
+            <div className="flex items-center justify-center p-10 text-2xl">
+              <Image src="/sad.svg" height={50} width={50} />
+              <span className="ml-2">Nenhum produto encontrado nessa categoria!</span>
+            </div>
+          ) : (
+            <ProductGrid products={products} />
+          )}
         </div>
       </main>
     </Layout>
