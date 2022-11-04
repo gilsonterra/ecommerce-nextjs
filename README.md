@@ -13,6 +13,7 @@ https://ecommerce-nextjs-gilsonterra.vercel.app/
 - Vercel
 - SSH - Serve Side Render
 - Fetch (para consumir API)
+- Tailwind (CSS)
 
 ## Getting Started
 
