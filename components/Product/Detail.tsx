@@ -42,6 +42,7 @@ const Detail = (product: Product) => {
           initial={{ y: 20, opacity: 0.3 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
+          className="text-4xl font-black py-3 text-purple-900"
         >
           {product.title}
         </motion.h1>

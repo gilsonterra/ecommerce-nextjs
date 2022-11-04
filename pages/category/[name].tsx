@@ -1,5 +1,5 @@
 import ProductGrid from "../../components/Product/ProductGrid";
-import { fetchByCategory } from "../../services/Product";
+import { fetchByCategory, fetchAll } from "../../services/Product";
 import { useEffect, useState } from "react";
 import { Product } from "../../types/Product";
 import { useRouter } from "next/router";
@@ -15,28 +15,28 @@ const Category = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    if(!category) return;
+    if (!category) return;
 
     fetchByCategory(category).then((data) => setProducts(data.products));
   }, [category]);
 
   return (
     <Layout title={category} description={category}>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <div className={styles.title}>
-            <motion.div
-              key={category}
-              initial={{ y: 20, opacity: 0.3 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ ease: "easeOut", duration: 0.6 }}
-            >
-              {category.replaceAll("-", " ")}
-            </motion.div>
-          </div>
+      <main className="flex flex-col justify-center items-center">
+        <div className="bg-purple-900 w-full text-4xl tracking-wider uppercase flex justify-center align-middle p-10 text-white">
+          <motion.div
+            key={category}
+            initial={{ y: 20, opacity: 0.3 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 0.6 }}
+          >
+            {category.replaceAll("-", " ")}
+          </motion.div>
+        </div>
+        <div className="max-w-screen-xl w-full">
           <ProductGrid products={products} />
-        </main>
-      </div>
+        </div>
+      </main>
     </Layout>
   );
 };

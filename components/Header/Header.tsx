@@ -7,9 +7,9 @@ interface HeaderProps {
 
 const Header = ({ children, top }: HeaderProps) => {
   return (
-    <div className={styles.header}>
-      <div className={styles.container}>
-        <div className={styles.top}>
+    <div className="bg-purple-700 flex justify-center align-middle">
+      <div className="flex flex-col w-full max-w-screen-xl">
+        <div className="flex justify-between p-2">
           <h1 className={styles.title}>Lojinha</h1>
           {top}
         </div>

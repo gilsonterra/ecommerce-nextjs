@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  width: 40%;
 }
 
 .containerTitle {
@@ -94,4 +93,15 @@
   color: darkred;
   font-size: 1.9rem;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 2px;
+  }
+
+  .containerDetail {
+    padding: 10px;
+  }
 }
