@@ -21,7 +21,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
       initial={{ x: -200, opacity: 0.5 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeOut" }}
-      className="w-full z-50 fixed top-0 left-0 backdrop-blur-sm  h-screen"
+      className="w-full h-full absolute z-10 top-0 left-0 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
@@ -31,11 +31,11 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
       >
         <Image src="/close.svg" width={40} height={40} />
       </button>
-      <div className="float-left bg-purple-50 w-60 relative flex flex-col flex-1 p-2 h-full overflow-y-auto overflow-x-hidden">
+      <div className="bg-purple-50 w-60 relative flex flex-col flex-1 p-2 min-h-screen overflow-y-auto overflow-x-hidden">
         <h2 className="text-2xl font-black text-purple-900 py-2 uppercase">
           Categorias
         </h2>
-        <ul>
+        <ul className="h-full w-full">
           {items?.map((item) => (
             <li
               key={item}
@@ -50,9 +50,9 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
             </li>
           ))}
         </ul>
-        <span className="text-sm text-gray-900 pt-5 pb-2 font-light">
+        <div className="text-sm text-gray-900 pt-5 pb-2 font-light">
           Desenvolvido por @gilsonterra
-        </span>
+        </div>
       </div>
     </motion.div>
   );

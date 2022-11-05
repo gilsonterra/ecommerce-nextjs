@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const [categories, setCategories] = useState<string[]>([]);
   const categoriesSlice =
-    width <= 425 ? 2 : width <= 768 ? 5 : width <= 1440 ? 6 : 10;
+    width <= 425 ? 2 : width <= 768 ? 4 : width <= 1440 ? 6 : 10;
   const categoriesFiltered = categories.slice(0, categoriesSlice);
 
   const handleShowSidebar = () => setShowSidebar(!showSidebar);
