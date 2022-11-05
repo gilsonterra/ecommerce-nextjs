@@ -18,6 +18,9 @@ const Category = () => {
 
   useEffect(() => {
     if (!category) return;
+    
+    const fakeProduct = {} as Product;
+    setProducts([fakeProduct, fakeProduct, fakeProduct, fakeProduct]); // fake skeleton
 
     setLoading(true);
 
@@ -42,9 +45,7 @@ const Category = () => {
         </div>
         <div className="max-w-screen-xl w-full">
           {loading ? (
-            <div className="flex items-center justify-center p-10 text-2xl">
-              <Image src="/loading.gif"  height={200} width={200} />
-            </div>
+             <ProductGrid products={products} />
           ) : products.length <= 0 ? (
             <div className="flex items-center justify-center p-10 text-2xl">
               <Image src="/sad.svg" height={50} width={50} />
