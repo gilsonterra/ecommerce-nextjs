@@ -47,7 +47,7 @@ const Category = () => {
           {loading ? (
              <ProductGrid products={products} />
           ) : products.length <= 0 ? (
-            <div className="flex items-center justify-center p-10 text-2xl">
+            <div className="flex items-center justify-center p-2 text-2xl">
               <Image src="/sad.svg" height={50} width={50} />
               <span className="ml-2">
                 Nenhum produto encontrado nessa categoria!
