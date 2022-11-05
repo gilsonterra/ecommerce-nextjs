@@ -21,7 +21,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
       initial={{ x: -200, opacity: 0.5 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeOut" }}
-      className="h-screen w-full z-10 absolute top-0 left-0 backdrop-blur-sm"
+      className="h-screen w-full z-50 absolute top-0 left-0 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
@@ -50,6 +50,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
             </li>
           ))}
         </ul>
+        <span className="text-sm text-gray-900 pt-5 pb-2 font-light">Desenvolvido por @gilsonterra</span>
       </div>
     </motion.div>
   );
