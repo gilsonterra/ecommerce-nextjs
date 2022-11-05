@@ -21,7 +21,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
       initial={{ x: -200, opacity: 0.5 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeOut" }}
-      className="h-screen w-full z-50 absolute top-0 left-0 backdrop-blur-sm"
+      className="w-full z-50 absolute top-0 left-0 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
@@ -31,7 +31,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
       >
         <Image src="/close.svg" width={40} height={40} />
       </button>
-      <div className="bg-purple-50 w-60 h-screen relative flex flex-col p-2  overflow-y-auto overflow-x-hidden">
+      <div className="bg-purple-50 h-screen  w-60 relative flex flex-col p-2  overflow-y-auto overflow-x-hidden">
         <h2 className="text-2xl font-black text-purple-900 py-2 uppercase">
           Categorias
         </h2>
