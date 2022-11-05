@@ -56,13 +56,13 @@ const Product = ({
         )}
       </div>
       <div>
-        <h3 className={style.title}>
+        <label className={style.title}>
           {title ? (
             title
           ) : (
             <div className="animate-pulse h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-3"></div>
           )}
-        </h3>
+        </label>
 
         {brand ? (
           <Brand value={brand} />

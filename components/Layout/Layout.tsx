@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { motion } from "framer-motion";
 
 type Props = {
   children: ReactNode;
@@ -22,13 +21,13 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
       <meta name="description" content={description} />
       <meta
         name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover"
       />
       <link
         href="https://fonts.googleapis.com/css2?family=Dancing Script&display=swap"
         rel="stylesheet"
       />
-      <link rel="icon" href="/icons/favicon-32x32.png" />
+      <link rel="icon" href="/ios/16.png" />
       <meta name="application-name" content="PWA App" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -41,39 +40,39 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="theme-color" content="#000000" />
 
-      <link rel="apple-touch-icon" href="/icons/touch-icon-iphone.png" />
+      <link rel="apple-touch-icon" href="/ios/64.png" />
       <link
         rel="apple-touch-icon"
         sizes="152x152"
-        href="/icons/touch-icon-ipad.png"
+        href="/ios/152.png"
       />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/icons/touch-icon-iphone-retina.png"
+        href="/ios/180.png"
       />
       <link
         rel="apple-touch-icon"
         sizes="167x167"
-        href="/icons/touch-icon-ipad-retina.png"
+        href="/ios/167.png"
       />
 
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/icons/favicon-32x32.png"
+        href="/ios/32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/icons/favicon-16x16.png"
+        href="/ios/16.png"
       />
       <link rel="manifest" href="/manifest.json" />
       <link
         rel="mask-icon"
-        href="/icons/safari-pinned-tab.svg"
+        href="/ios/16.png"
         color="#5bbad5"
       />
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -91,7 +90,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
       <meta name="twitter:description" content="Lojinha by Gilson Terra" />
       <meta
         name="twitter:image"
-        content="https://ecommerce-nextjs-gilsonterra.vercel.app/icons/android-chrome-192x192.png"
+        content="https://ecommerce-nextjs-gilsonterra.vercel.app/android/android-launchericon-192-192.png"
       />
       <meta name="twitter:creator" content="@gilsonterra" />
       <meta property="og:type" content="website" />
@@ -104,7 +103,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
       />
       <meta
         property="og:image"
-        content="https://ecommerce-nextjs-gilsonterra.vercel.app/icons/apple-touch-icon.png"
+        content="https://ecommerce-nextjs-gilsonterra.vercel.app/ios/16.png"
       />
 
       <link
