@@ -30,7 +30,7 @@ const Product = ({
       initial={{ opacity: 0.5 }}
       animate={{ opacity: 1 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={style.card}
+      className={`${style.card} hover:bg-purple-300 hover:scale-105`}
     >
       <div className={style.thumbnail}>
         <Image

@@ -39,7 +39,7 @@ const Sidebar = ({ onClose, items }: SidebarProps) => {
           {items?.map((item) => (
             <li
               key={item}
-              className="py-1 text-gray-900 hover:text-purple-600 hover:font-semibold"
+              className="py-2 text-gray-900 hover:text-purple-600 hover:font-semibold"
             >
               <button
                 onClick={(event) => onClickItem(event, `/category/${item}`)}

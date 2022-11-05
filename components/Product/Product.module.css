@@ -10,15 +10,6 @@
   margin: 10px 0;
 }
 
-.card:not(:last-child) {
-  margin-right: 5px;
-}
-
-.card:hover {
-  background: #a406ff34;
-  transform: scale(1.05);
-}
-
 .card .title {
   margin: 25px 0px 0px 0px;
   font-size: 20px;
@@ -68,11 +59,6 @@
 .thumbnail {
   height: 130px;
   position: relative;
-}
-
-.card:hover .link {
-  display: inline-block;
-  background: #9b4dca;
 }
 
 @media (min-width: 500px) {
