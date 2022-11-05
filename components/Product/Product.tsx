@@ -48,13 +48,13 @@ const Product = ({
           <p>{description}</p>
         </div>
       </div>
-      <Rating value={rating} />
+      {rating && <Rating value={rating} /> }
       <div className={style.wrapper}>
         <div className={style.containerPrice}>
           <del className={style.price}>
-            {priceFormatted(price, discountPercentage)}
+            {price && priceFormatted(price, discountPercentage)}
           </del>
-          <span className={style.priceDiscount}>{formattedReal(price)}</span>
+          <span className={style.priceDiscount}>{price && formattedReal(price)}</span>
         </div>
         <Link href={`/detail/${id}`}>
           <a className={style.link}>Ver Detalhes</a>

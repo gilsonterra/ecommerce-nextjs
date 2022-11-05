@@ -20,7 +20,7 @@ const Category = () => {
     if (!category) return;
     
     const fakeProduct = {} as Product;
-    setProducts([fakeProduct, fakeProduct, fakeProduct, fakeProduct]); // fake skeleton
+    setProducts(Array(8).fill(fakeProduct)); // fake skeleton
 
     setLoading(true);
 
