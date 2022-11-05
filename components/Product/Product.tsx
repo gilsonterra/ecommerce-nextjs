@@ -38,6 +38,7 @@ const Product = ({
             alt={description}
             placeholder="blur"
             layout="fill"
+            priority={true}
             blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
           />
         ) : (
