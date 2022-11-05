@@ -26,6 +26,14 @@ const Navbar = () => {
     fetchCategories().then((data) => setCategories(data));
   }, []);
 
+  useEffect(() => {
+    if (showSidebar) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showSidebar]);
+
   return (
     <nav className="py-4">
       {showSidebar && (
