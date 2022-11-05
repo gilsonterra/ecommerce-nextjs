@@ -24,6 +24,6 @@ body {
 
 
 .h-screen-sidebar {
-  height: 110vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 99);
+  height: 100%;
+  overflow-y: scroll;  
 }
