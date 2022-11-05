@@ -13,13 +13,18 @@ const Category = () => {
   const { name } = router.query;
   const categoryId = name ? (Array.isArray(name) ? name[0] : name) : "";
   const category = categoryId.replaceAll("-", " ");
-
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     if (!category) return;
 
-    fetchByCategory(category).then((data) => setProducts(data.products));
+    setLoading(true);
+
+    fetchByCategory(category).then((data) => {
+      setProducts(data.products)
+      setLoading(false);
+    });
   }, [category]);
 
   return (
@@ -36,10 +41,16 @@ const Category = () => {
           </motion.div>
         </div>
         <div className="max-w-screen-xl w-full">
-          {products.length <= 0 ? (
+          {loading ? (
+            <div className="flex items-center justify-center p-10 text-2xl">
+              <Image src="/loading.gif"  height={200} width={200} />
+            </div>
+          ) : products.length <= 0 ? (
             <div className="flex items-center justify-center p-10 text-2xl">
               <Image src="/sad.svg" height={50} width={50} />
-              <span className="ml-2">Nenhum produto encontrado nessa categoria!</span>
+              <span className="ml-2">
+                Nenhum produto encontrado nessa categoria!
+              </span>
             </div>
           ) : (
             <ProductGrid products={products} />
