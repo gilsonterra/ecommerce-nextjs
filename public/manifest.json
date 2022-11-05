@@ -360,7 +360,8 @@
     },
     {
       "src": "ios/32.png",
-      "sizes": "32x32"
+      "sizes": "32x32",
+      "purpose": "maskable"
     },
     {
       "src": "ios/40.png",
@@ -368,7 +369,8 @@
     },
     {
       "src": "ios/50.png",
-      "sizes": "50x50"
+      "sizes": "50x50",
+      "purpose": "maskable"
     },
     {
       "src": "ios/57.png",
@@ -440,15 +442,22 @@
     },
     {
       "src": "ios/256.png",
-      "sizes": "256x256"
+      "sizes": "256x256",
+      "purpose": "maskable"
     },
     {
       "src": "ios/512.png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     },
     {
       "src": "ios/1024.png",
       "sizes": "1024x1024"
+    },
+    {
+      "src": "maskable_icon.png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#bd10e0",

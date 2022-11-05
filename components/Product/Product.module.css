@@ -11,8 +11,11 @@
 }
 
 .card .title {
-  margin: 25px 0px 0px 0px;
+  margin: 15px 0px;
   font-size: 20px;
+  display: block;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
 .card .content {
