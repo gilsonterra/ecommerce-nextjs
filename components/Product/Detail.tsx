@@ -109,7 +109,7 @@ const Detail = (product: Product) => {
           transition={{ ease: "easeOut", duration: 0.6 }}
           className="border-2 mt-2 h-full p-2 flex flex-col items-center"
         >
-          <span className="rounded bg-green-700 text-white p-1 inline-block">
+          <span className="rounded bg-green-700 text-white px-2 py-1 inline-block">
             - {product.discountPercentage}%
           </span>
           <div className="text-gray-500 p-2">
@@ -134,7 +134,7 @@ const Detail = (product: Product) => {
               <span className="text-lg">Esgotado</span>
             ) : (
               <button
-                className="bg-purple-800 w-full text-white p-2 rounded-2xl text-2xl"
+                className="bg-purple-800 w-full text-white p-2 rounded-2xl uppercase text-2xl"
                 onClick={handleAddCart}
               >
                 Comprar
