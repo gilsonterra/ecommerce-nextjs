@@ -31,18 +31,19 @@ const Product = ({
       transition={{ ease: "easeOut", duration: 0.3 }}
       className={`${style.card} hover:bg-purple-300 hover:scale-105`}
     >
-      <div className={style.thumbnail}>
-        {thumbnail ? (
-          <Image
-            src={thumbnail}
-            alt={description}
-            placeholder="blur"
-            layout="fill"
-            priority={true}
-            blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
-          />
+      <div className="h-52 relative mb-4">
+      {thumbnail ? (
+        <Image
+          src={thumbnail}
+          alt={description}
+          placeholder="blur"
+          priority={true}
+          layout="fill"
+          className="object-scale-down"
+          blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
+        />
         ) : (
-          <div className="animate-pulse  flex justify-center items-center w-full h-32 bg-gray-300 rounded dark:bg-gray-700">
+          <div className="animate-pulse flex justify-center items-center w-full h-full bg-gray-300 rounded dark:bg-gray-700">
             <svg
               className="w-12 h-12 text-gray-200"
               xmlns="http://www.w3.org/2000/svg"
