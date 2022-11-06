@@ -22,10 +22,10 @@ const Detail = (product: Product) => {
       currency: "BRL",
     }).format(value);
 
-  const [imageSelected, setImageSelected] = useState(product.thumbnail)
+  const [imageSelected, setImageSelected] = useState(product.thumbnail);
   const handleSelectImage = (item: string) => {
-    setImageSelected(item)
-  }
+    setImageSelected(item);
+  };
 
   return (
     <motion.div
@@ -37,10 +37,15 @@ const Detail = (product: Product) => {
       <div className="w-full md:w-2/3 p-2 flex justify-center items-start">
         <ul className="w-24 h-full mr-3 flex flex-col gap-2 items-stretch">
           {product.images.map((item) => (
-            <li className="relative h-16 w-full border-2 rounded-lg overflow-hidden cursor-pointer" onMouseMove={() => handleSelectImage(item)}>
+            <li
+              className="relative h-16 w-full border-2 rounded-lg overflow-hidden cursor-pointer"
+              onMouseMove={() => handleSelectImage(item)}
+            >
               <Image
                 src={item}
                 alt={item}
+                placeholder="blur"
+                blurDataURL={item}
                 layout="fill"
                 className="object-cover"
               />
@@ -53,6 +58,8 @@ const Detail = (product: Product) => {
             alt={product.description}
             layout="fill"
             className="object-contain"
+            placeholder="blur"
+            blurDataURL={imageSelected}
           />
         </div>
       </div>
@@ -114,7 +121,9 @@ const Detail = (product: Product) => {
             </del>
             <span>({product.discountPercentage}% de desconto)</span>
           </div>
-          <span className="p-2 text-4xl font-black">{formattedReal(product.price)}</span>
+          <span className="p-2 text-4xl font-black">
+            {formattedReal(product.price)}
+          </span>
           <motion.div
             className="w-full"
             initial={{ y: 20, opacity: 0.3 }}
@@ -124,7 +133,10 @@ const Detail = (product: Product) => {
             {totalProducts > product.stock ? (
               <span className="text-lg">Esgotado</span>
             ) : (
-              <button className="bg-purple-800 w-full text-white p-2 rounded-2xl text-2xl" onClick={handleAddCart}>
+              <button
+                className="bg-purple-800 w-full text-white p-2 rounded-2xl text-2xl"
+                onClick={handleAddCart}
+              >
                 Comprar
               </button>
             )}
