@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Rating from "../../components/Product/Rating";
 import { motion } from "framer-motion";
 import Brand from "./Brand";
+import { useState } from "react";
 
 const Detail = (product: Product) => {
   const dispatch = useAppDispatch();
@@ -21,28 +22,46 @@ const Detail = (product: Product) => {
       currency: "BRL",
     }).format(value);
 
+  const [imageSelected, setImageSelected] = useState(product.thumbnail)
+  const handleSelectImage = (item: string) => {
+    setImageSelected(item)
+  }
+
   return (
     <motion.div
       initial={{ y: -10, opacity: 0.3 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={styles.container}
+      className="p-2 flex flex-row flex-wrap"
     >
-      <div className={styles.containerImage}>
-        <Image
-          loader={() => product.thumbnail}
-          src="product.png"
-          alt={product.description}
-          width="800"
-          height="660"
-        />
+      <div className="w-full md:w-2/3 p-2 flex justify-center items-start">
+        <ul className="w-24 h-full mr-3 flex flex-col gap-2 items-stretch">
+          {product.images.map((item) => (
+            <li className="relative h-16 w-full border-2 rounded-lg overflow-hidden cursor-pointer" onMouseMove={() => handleSelectImage(item)}>
+              <Image
+                src={item}
+                alt={item}
+                layout="fill"
+                className="object-cover"
+              />
+            </li>
+          ))}
+        </ul>
+        <div className="h-full w-full relative bg-gray-100 border-2 rounded">
+          <Image
+            src={imageSelected}
+            alt={product.description}
+            layout="fill"
+            className="object-contain"
+          />
+        </div>
       </div>
-      <div className={styles.containerDetail}>
+      <div className="w-full md:w-1/3 p-2 h-full">
         <motion.h1
           initial={{ y: 20, opacity: 0.3 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 1 }}
-          className="text-4xl font-black py-3 text-purple-900"
+          className="text-4xl font-black mb-3 capitalize text-purple-900"
         >
           {product.title}
         </motion.h1>
@@ -50,7 +69,7 @@ const Detail = (product: Product) => {
           initial={{ y: 20, opacity: 0.3 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 0.8 }}
-          className={styles.containerTitle}
+          className="flex justify-between mb-2"
         >
           <Brand value={product.brand} />
           <Rating value={product.rating} />
@@ -59,6 +78,7 @@ const Detail = (product: Product) => {
           initial={{ y: 20, opacity: 0.3 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 0.6 }}
+          className="py-2"
         >
           {product.description}
         </motion.p>
@@ -80,12 +100,12 @@ const Detail = (product: Product) => {
           initial={{ y: 20, opacity: 0.3 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeOut", duration: 0.6 }}
-          className={styles.containerPrice}
+          className="border-2 mt-2 h-full p-2 flex flex-col items-center"
         >
-          <span className={styles.percent}>
+          <span className="rounded bg-green-700 text-white p-1 inline-block">
             - {product.discountPercentage}%
           </span>
-          <div className={styles.discount}>
+          <div className="text-gray-500 p-2">
             <del>
               {formattedReal(
                 product.price +
@@ -94,17 +114,17 @@ const Detail = (product: Product) => {
             </del>
             <span>({product.discountPercentage}% de desconto)</span>
           </div>
-          <span className={styles.price}>{formattedReal(product.price)}</span>
+          <span className="p-2 text-4xl font-black">{formattedReal(product.price)}</span>
           <motion.div
-            className={styles.containerButton}
+            className="w-full"
             initial={{ y: 20, opacity: 0.3 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeOut", duration: 0.6 }}
           >
             {totalProducts > product.stock ? (
-              <span className={styles.sold}>Esgotado</span>
+              <span className="text-lg">Esgotado</span>
             ) : (
-              <button className={styles.button} onClick={handleAddCart}>
+              <button className="bg-purple-800 w-full text-white p-2 rounded-2xl text-2xl" onClick={handleAddCart}>
                 Comprar
               </button>
             )}

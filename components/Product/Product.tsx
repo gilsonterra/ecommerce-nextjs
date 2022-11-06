@@ -39,8 +39,8 @@ const Product = ({
             placeholder="blur"
             priority={true}
             layout="fill"
-            className="object-scale-down"
-            blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
+            className="object-contain"
+            blurDataURL={thumbnail}
           />
         ) : (
           <div className="animate-pulse h-44 flex justify-center items-center w-full rounded">
