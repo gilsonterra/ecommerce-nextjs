@@ -56,7 +56,7 @@ const ProductCollection = ({
       className={style.container}
     >
       <div className={style.containerTitle}>
-        <h1 className={style.title}>
+        <h1 className="text-xl font-semibold tracking-wider text-purple-800">
           {title} {title ? `(${products?.length || 0})` : ""}
         </h1>
         {right}

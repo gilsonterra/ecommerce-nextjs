@@ -30,7 +30,7 @@
 
 .control {
   width: 40px;
-  height: 400px;
+  height: 470px;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -39,7 +39,7 @@
   background-color: rgba(238, 238, 238, 0.87);
   font-size: 2rem;
   border: solid 1px #ccc;
-  top: 75px;
+  top: 78px;
   cursor: pointer;
   transition: all 0.3s;
 }

@@ -25,7 +25,7 @@ const Home = ({ products }: HomeProps) => {
     <div className={styles.container}>
       <main className={styles.main}>
         <ProductInlineCollection title="Novidades" right={
-          <span className={styles.label}>Usando SSR - Server Side Render</span>
+          <span className="bg-red-800 text-white rounded-xl p-2">Usando SSR - Server Side Render</span>
         } products={products} />
         <ProductInlineCollection title="Moda" products={fashion} />
         <ProductInlineCollection title="Acessórios" products={red} />
