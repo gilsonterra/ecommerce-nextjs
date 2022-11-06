@@ -4,11 +4,12 @@ import styles from "components/Product/Rating.module.css";
 interface RatingProps {
   value: number;
   size?: number;
+  className?: string;
 }
 
-const Rating = ({ value, size= 20 }: RatingProps) => {
+const Rating = ({ value, size= 20, className }: RatingProps) => {
   return (
-    <div className={styles.rating}>
+    <div className={`${styles.rating} ${className}`}>
       <Image
         className={styles.image}
         src="/star.svg"

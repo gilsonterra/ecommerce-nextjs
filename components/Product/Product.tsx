@@ -29,23 +29,23 @@ const Product = ({
       initial={{ opacity: 0.5 }}
       animate={{ opacity: 1 }}
       transition={{ ease: "easeOut", duration: 0.3 }}
-      className={`${style.card} hover:bg-purple-300 hover:scale-105`}
+      className={`${style.card} hover:bg-purple-300 hover:scale-105 relative`}
     >
-      <div className="h-52 relative mb-4">
-      {thumbnail ? (
-        <Image
-          src={thumbnail}
-          alt={description}
-          placeholder="blur"
-          priority={true}
-          layout="fill"
-          className="object-scale-down"
-          blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
-        />
+      <div className="h-44 relative">
+        {thumbnail ? (
+          <Image
+            src={thumbnail}
+            alt={description}
+            placeholder="blur"
+            priority={true}
+            layout="fill"
+            className="object-scale-down"
+            blurDataURL="https://dummyjson.com/image/i/products/13/thumbnail.webp"
+          />
         ) : (
-          <div className="animate-pulse flex justify-center items-center w-full h-full bg-gray-300 rounded dark:bg-gray-700">
+          <div className="animate-pulse h-44 flex justify-center items-center w-full rounded">
             <svg
-              className="w-12 h-12 text-gray-200"
+              className="w-12 h-20 text-gray-200"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
               fill="currentColor"
@@ -61,42 +61,42 @@ const Product = ({
           {title ? (
             title
           ) : (
-            <div className="animate-pulse h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-3"></div>
+            <div className="animate-pulse h-4 bg-gray-200 rounded-full w-52 my-6"></div>
           )}
         </label>
 
         {brand ? (
           <Brand value={brand} />
         ) : (
-          <div className="animate-pulse h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-40 mb-4"></div>
+          <div className="animate-pulse h-3 bg-gray-200 rounded-full w-40 mb-4"></div>
         )}
         <div className={style.content}>
           {description ? (
             <p>{description}</p>
           ) : (
             <p className="animate-pulse">
-              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-full mb-2"></div>
-              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-40 mb-2"></div>
+              <div className="h-3 bg-gray-200 rounded-full  w-full mb-2"></div>
+              <div className="h-3 bg-gray-200 rounded-full  w-full mb-2"></div>
+              <div className="h-3 bg-gray-200 rounded-full  w-40 mb-2"></div>
             </p>
           )}
         </div>
       </div>
-      {rating && <Rating value={rating} />}
       <div className={style.wrapper}>
         <div className={style.containerPrice}>
+          {rating && <Rating value={rating} />}
           <del className={style.price}>
             {price ? (
               priceFormatted(price, discountPercentage)
             ) : (
-              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-16 mb-2"></div>
+              <div className="h-3 bg-gray-200 rounded-full  w-16 mb-2"></div>
             )}
           </del>
           <span className={style.priceDiscount}>
             {price ? (
               formattedReal(price)
             ) : (
-              <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 w-20 mb-2"></div>
+              <div className="h-5 bg-gray-200 rounded-full  w-20 mb-2"></div>
             )}
           </span>
         </div>
